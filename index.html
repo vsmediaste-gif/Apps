@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VS MEDIA Kids — تطبيقات تعليمية ممتعة للأطفال</title>
+<meta name="description" content="ستّ تطبيقات تعليمية للأطفال: الرياضيات وخمس لغات (الإنجليزية، الفرنسية، الإسبانية، العربية، الصينية). تعلّم باللعب، دون إنترنت، بأربع لغات واجهة." />
+<meta property="og:title" content="VS MEDIA Kids — Fun learning apps for kids" />
+<meta property="og:description" content="6 educational apps: maths + 5 languages. Read · Listen · Speak · Write. Offline, kid-safe, 4 UI languages." />
+<meta name="theme-color" content="#5B21B6" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%92%3C/text%3E%3C/svg%3E" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --purple:#7C3AED; --purple-dark:#5B21B6; --blue:#2563EB; --blue-dark:#1D4ED8;
+  --pink:#EC4899; --amber:#F59E0B; --green:#22C55E; --red:#DC2626;
+  --text:#1E293B; --muted:#64748B; --bg:#F6F7FB; --card:#FFFFFF; --line:#E9ECF3;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  color:var(--text); background:var(--bg); line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+[dir="rtl"] body{font-family:"Segoe UI","Tahoma","Cairo",-apple-system,sans-serif}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* ─── Language bar ─── */
+.langbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;
+  gap:10px;padding:10px 18px;flex-wrap:wrap;
+}
+.langbar .brand-mini{font-weight:900;font-size:15px;letter-spacing:.3px;display:flex;align-items:center;gap:7px}
+.langbar .brand-mini span{background:linear-gradient(90deg,var(--purple),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.langs{display:flex;gap:5px;flex-wrap:wrap}
+.langbtn{
+  background:none;border:1.5px solid transparent;padding:6px 13px;border-radius:20px;
+  cursor:pointer;font:inherit;font-size:13px;color:var(--muted);font-weight:700;transition:.2s;
+}
+.langbtn:hover{background:rgba(0,0,0,.04)}
+.langbtn.active{background:var(--purple-dark);color:#fff;border-color:var(--purple-dark)}
+
+/* ─── Hero ─── */
+.hero{
+  position:relative;overflow:hidden;text-align:center;color:#fff;
+  padding:64px 22px 84px;
+  background:linear-gradient(135deg,#5B21B6 0%,#2563EB 55%,#EC4899 120%);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(circle at 18% 22%,rgba(255,255,255,.14) 0,transparent 45%),
+    radial-gradient(circle at 82% 68%,rgba(255,255,255,.10) 0,transparent 45%);
+}
+.hero-inner{position:relative;max-width:860px;margin:0 auto}
+.kicker{
+  display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);
+  padding:6px 16px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:18px;backdrop-filter:blur(4px);
+}
+.hero h1{font-size:clamp(30px,6vw,54px);font-weight:900;line-height:1.15;letter-spacing:.3px;margin-bottom:16px;text-shadow:0 4px 22px rgba(0,0,0,.18)}
+.hero p{font-size:clamp(15px,2.2vw,20px);opacity:.95;max-width:620px;margin:0 auto 24px}
+.badges{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:22px 0 6px}
+.badge{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;backdrop-filter:blur(4px)}
+/* floating app tiles in hero */
+.hero-tiles{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:34px}
+.hero-tile{
+  width:60px;height:60px;border-radius:16px;display:grid;place-items:center;font-size:26px;font-weight:900;
+  box-shadow:0 10px 26px rgba(0,0,0,.28);animation:float 4s ease-in-out infinite;
+}
+.hero-tile:nth-child(2n){animation-delay:.5s}
+.hero-tile:nth-child(3n){animation-delay:1s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+/* ─── Sections ─── */
+section{padding:58px 22px}
+.wrap{max-width:1100px;margin:0 auto}
+.sec-title{text-align:center;font-size:clamp(24px,3.6vw,34px);font-weight:900;margin-bottom:8px}
+.sec-sub{text-align:center;color:var(--muted);max-width:620px;margin:0 auto 40px;font-size:15px}
+
+/* ─── Apps grid ─── */
+#apps{background:linear-gradient(180deg,#fff 0,var(--bg) 100%)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.app-card{
+  background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;
+  display:flex;flex-direction:column;gap:14px;transition:transform .22s,box-shadow .22s;
+  box-shadow:0 4px 16px rgba(30,41,59,.05);
+}
+.app-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(30,41,59,.14)}
+.app-top{display:flex;align-items:center;gap:14px}
+.app-icon{
+  width:66px;height:66px;border-radius:18px;flex:none;display:grid;place-items:center;
+  font-size:30px;font-weight:900;color:#fff;box-shadow:0 8px 20px rgba(0,0,0,.16);
+}
+.app-name{font-size:20px;font-weight:900;line-height:1.15}
+.app-subject{font-size:12.5px;font-weight:700;color:var(--muted);margin-top:2px}
+.app-tag{color:var(--text);font-size:14.5px;opacity:.85;flex:1}
+.play-btn{
+  display:inline-flex;align-items:center;gap:11px;background:#111827;color:#fff;
+  padding:11px 18px;border-radius:14px;font-weight:800;font-size:14px;align-self:flex-start;
+  transition:transform .18s,background .2s;
+}
+.play-btn:hover{transform:translateY(-2px);background:#000}
+.play-btn .g-sub{font-size:10px;font-weight:600;opacity:.8;line-height:1;display:block}
+.play-btn .g-main{font-size:15px;font-weight:800;line-height:1.1}
+[dir="rtl"] .play-btn{flex-direction:row-reverse}
+
+/* ─── Features ─── */
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.feat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;transition:transform .2s}
+.feat:hover{transform:translateY(-4px)}
+.feat .ic{font-size:34px;margin-bottom:10px}
+.feat h3{font-size:17px;font-weight:800;margin-bottom:6px}
+.feat p{color:var(--muted);font-size:14px}
+
+/* ─── CTA band ─── */
+.cta-band{background:linear-gradient(135deg,#1D4ED8,#7C3AED);color:#fff;text-align:center;border-radius:26px;max-width:1100px;margin:0 auto;padding:44px 24px}
+.cta-band h2{font-size:clamp(22px,3.2vw,30px);font-weight:900;margin-bottom:10px}
+.cta-band p{opacity:.92;margin-bottom:22px}
+.cta-band a{display:inline-flex;align-items:center;gap:9px;background:#fff;color:var(--purple-dark);padding:13px 26px;border-radius:30px;font-weight:800;box-shadow:0 10px 26px rgba(0,0,0,.22);transition:transform .2s}
+.cta-band a:hover{transform:translateY(-3px)}
+
+/* ─── Footer ─── */
+footer{background:#0F172A;color:#CBD5E1;text-align:center;padding:36px 22px;font-size:14px}
+footer .fbrand{font-weight:900;color:#fff;font-size:16px;margin-bottom:6px}
+footer a{color:#93C5FD}
+</style>
+</head>
+<body>
+
+<div class="langbar">
+  <div class="brand-mini">🎒 <span>VS&nbsp;MEDIA&nbsp;Kids</span></div>
+  <div class="langs" id="langs"></div>
+</div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="kicker" data-i="kicker"></span>
+    <h1 data-i="heroTitle"></h1>
+    <p data-i="heroSub"></p>
+    <div class="badges" id="badges"></div>
+    <div class="hero-tiles" id="heroTiles"></div>
+  </div>
+</header>
+
+<section id="apps">
+  <div class="wrap">
+    <h2 class="sec-title" data-i="appsTitle"></h2>
+    <p class="sec-sub" data-i="appsSub"></p>
+    <div class="grid" id="appGrid"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="sec-title" data-i="featTitle"></h2>
+    <p class="sec-sub" data-i="featSub"></p>
+    <div class="feat-grid" id="featGrid"></div>
+  </div>
+</section>
+
+<section>
+  <div class="cta-band">
+    <h2 data-i="ctaTitle"></h2>
+    <p data-i="ctaSub"></p>
+    <a href="#apps" data-i="ctaBtn"></a>
+  </div>
+</section>
+
+<footer>
+  <div class="fbrand">VS MEDIA</div>
+  <div data-i="footTag"></div>
+  <div style="margin-top:8px">© 2026 Ayyoub EL HAJJI · <a href="mailto:ayyoub.elhajji@etu.uae.ac.ma">ayyoub.elhajji@etu.uae.ac.ma</a></div>
+</footer>
+
+<script>
+/* ─────────── App catalogue (source: family_apps.dart) ─────────── */
+const APPS = [
+  {pkg:'com.matho.primaire', emoji:'🧮', color:'#3B82F6',
+   name:{en:'MathoKids',fr:'MathoKids',es:'MathoKids',ar:'ماتوكيدز'},
+   subject:{en:'Maths',fr:'Maths',es:'Matemáticas',ar:'الرياضيات'},
+   tag:{en:'Learn maths by playing',fr:'Apprends les maths en jouant',es:'Aprende matemáticas jugando',ar:'تعلّم الرياضيات باللعب'}},
+  {pkg:'com.vsmedia.francokids', emoji:'Fr', color:'#2563EB',
+   name:{en:'FrancoKids',fr:'FrancoKids',es:'FrancoKids',ar:'فرانكوكيدز'},
+   subject:{en:'French',fr:'Français',es:'Francés',ar:'الفرنسية'},
+   tag:{en:'Learn French by playing',fr:'Apprends le français en jouant',es:'Aprende francés jugando',ar:'تعلّم الفرنسية باللعب'}},
+  {pkg:'com.vsmedia.englokids', emoji:'En', color:'#DC2626',
+   name:{en:'EngloKids',fr:'EngloKids',es:'EngloKids',ar:'إنجلوكيدز'},
+   subject:{en:'English',fr:'Anglais',es:'Inglés',ar:'الإنجليزية'},
+   tag:{en:'Learn English by playing',fr:"Apprends l'anglais en jouant",es:'Aprende inglés jugando',ar:'تعلّم الإنجليزية باللعب'}},
+  {pkg:'com.vsmedia.arabikids', emoji:'ع', color:'#6816AD',
+   name:{en:'ArabiKids',fr:'ArabiKids',es:'ArabiKids',ar:'عربيكيدز'},
+   subject:{en:'Arabic',fr:'Arabe',es:'Árabe',ar:'العربية'},
+   tag:{en:'Learn Arabic by playing',fr:"Apprends l'arabe en jouant",es:'Aprende árabe jugando',ar:'تعلّم العربية باللعب'}},
+  {pkg:'com.vsmedia.spanokids', emoji:'Es', color:'#F59E0B',
+   name:{en:'SpanoKids',fr:'SpanoKids',es:'SpanoKids',ar:'سبانوكيدز'},
+   subject:{en:'Spanish',fr:'Espagnol',es:'Español',ar:'الإسبانية'},
+   tag:{en:'Learn Spanish by playing',fr:"Apprends l'espagnol en jouant",es:'Aprende español jugando',ar:'تعلّم الإسبانية باللعب'}},
+  {pkg:'com.vsmedia.chinokids', emoji:'中', color:'#DC2626',
+   name:{en:'ChinoKids',fr:'ChinoKids',es:'ChinoKids',ar:'شينوكيدز'},
+   subject:{en:'Chinese',fr:'Chinois',es:'Chino',ar:'الصينية'},
+   tag:{en:'Learn Chinese by playing',fr:'Apprends le chinois en jouant',es:'Aprende chino jugando',ar:'تعلّم الصينية باللعب'}},
+];
+const playUrl = p => 'https://play.google.com/store/apps/details?id=' + p;
+
+/* ─────────── Feature blocks ─────────── */
+const FEATURES = [
+  {ic:'🧠', title:{en:'The 4 core skills',fr:'Les 4 compétences',es:'Las 4 competencias',ar:'المهارات الأربع'},
+   desc:{en:'Read · Listen · Speak · and now Write, by tracing letters with a finger.',fr:'Lire · Écouter · Parler · et désormais Écrire, en traçant les lettres au doigt.',es:'Leer · Escuchar · Hablar · y ahora Escribir, trazando letras con el dedo.',ar:'يقرأ · يسمع · ينطق · والآن يكتب بتتبّع الحروف بإصبعه.'}},
+  {ic:'🦊', title:{en:'A friendly mascot',fr:'Une mascotte',es:'Una mascota',ar:'تميمة مرِحة'},
+   desc:{en:'An animated companion that cheers, encourages and celebrates every win.',fr:'Un compagnon animé qui encourage et fête chaque réussite.',es:'Un compañero animado que anima y celebra cada logro.',ar:'رفيق متحرّك يشجّع الطفل ويحتفل بكل نجاح.'}},
+  {ic:'📊', title:{en:'Weekly parent report',fr:'Rapport parent',es:'Informe para padres',ar:'تقرير أسبوعي للأهل'},
+   desc:{en:'A clear PDF: what your child learned, time spent, streak and tricky words.',fr:'Un PDF clair : progrès, temps passé, série et mots difficiles.',es:'Un PDF claro: progreso, tiempo, racha y palabras difíciles.',ar:'ملف PDF واضح: ما تعلّمه الطفل، الوقت، السلسلة، والكلمات الصعبة.'}},
+  {ic:'✈️', title:{en:'Works offline',fr:'Fonctionne hors ligne',es:'Funciona sin conexión',ar:'يعمل دون إنترنت'},
+   desc:{en:'Learn anywhere — in the car, on a trip, with no internet needed.',fr:'Apprendre partout — en voiture, en voyage, sans internet.',es:'Aprende en cualquier lugar, sin necesidad de internet.',ar:'التعلّم في أي مكان — في السيارة أو السفر، دون حاجة للإنترنت.'}},
+  {ic:'🛡️', title:{en:'Safe for kids',fr:'Sûr pour les enfants',es:'Seguro para niños',ar:'آمن للأطفال'},
+   desc:{en:'Parental gate, no intrusive ads, designed for ages 4 and up.',fr:'Contrôle parental, pas de pub intrusive, dès 4 ans.',es:'Control parental, sin anuncios intrusivos, desde los 4 años.',ar:'بوّابة أبوية، بلا إعلانات مزعجة، مصمّم من عمر ٤ سنوات.'}},
+  {ic:'🏆', title:{en:'Stays motivating',fr:'Motive au quotidien',es:'Motiva cada día',ar:'يحفّز على الاستمرار'},
+   desc:{en:'Badges, stars, daily streaks and rewards keep kids coming back.',fr:'Badges, étoiles, séries et récompenses donnent envie de continuer.',es:'Insignias, estrellas, rachas y recompensas para seguir.',ar:'شارات ونجوم وسلاسل يومية ومكافآت تحفّز على المواصلة.'}},
+];
+
+/* ─────────── UI strings ─────────── */
+const T = {
+  ar:{dir:'rtl',label:'العربية',
+    kicker:'٦ تطبيقات · عائلة VS MEDIA التعليمية',
+    heroTitle:'تطبيقات تعليمية ممتعة لأطفالك',
+    heroSub:'ستّ ألعاب تعلّمية تجمع بين المرح والفائدة — الرياضيات وخمس لغات — بأربع لغات واجهة، وتعمل دون إنترنت.',
+    badges:['٤ لغات واجهة','دون إنترنت','بلا إعلانات مزعجة','من عمر ٤ سنوات','تقرير للأهل'],
+    appsTitle:'اختر تطبيقك',
+    appsSub:'انقر «تحميل من Google Play» لتثبيت التطبيق الذي يناسب طفلك.',
+    featTitle:'لماذا تطبيقاتنا؟',
+    featSub:'صُمّمت بعناية لتعليمٍ حقيقيٍّ ممتع وآمن.',
+    download:'تحميل من',
+    ctaTitle:'ابدأ رحلة التعلّم اليوم',
+    ctaSub:'حمّل التطبيق الذي يناسب طفلك مجانًا.',
+    ctaBtn:'⬇️ إلى التطبيقات',
+    footTag:'تطبيقات تعليمية للأطفال · تعلّم باللعب'},
+  fr:{dir:'ltr',label:'Français',
+    kicker:'6 applis · la famille éducative VS MEDIA',
+    heroTitle:'Des applis éducatives amusantes pour vos enfants',
+    heroSub:'Six jeux d’apprentissage qui mêlent plaisir et progrès — les maths et cinq langues — en 4 langues d’interface, et hors ligne.',
+    badges:['4 langues','Hors ligne','Sans pub intrusive','Dès 4 ans','Rapport parent'],
+    appsTitle:'Choisissez votre appli',
+    appsSub:'Cliquez sur « Télécharger sur Google Play » pour installer l’appli adaptée à votre enfant.',
+    featTitle:'Pourquoi nos applis ?',
+    featSub:'Conçues avec soin pour un apprentissage réel, ludique et sûr.',
+    download:'Télécharger sur',
+    ctaTitle:'Commencez l’aventure dès aujourd’hui',
+    ctaSub:'Téléchargez gratuitement l’appli qui convient à votre enfant.',
+    ctaBtn:'⬇️ Voir les applis',
+    footTag:'Applis éducatives pour enfants · Apprendre en jouant'},
+  en:{dir:'ltr',label:'English',
+    kicker:'6 apps · the VS MEDIA learning family',
+    heroTitle:'Fun learning apps for your kids',
+    heroSub:'Six learning games that blend fun and progress — maths and five languages — in 4 interface languages, and fully offline.',
+    badges:['4 languages','Offline','No intrusive ads','Ages 4+','Parent report'],
+    appsTitle:'Pick your app',
+    appsSub:'Tap “Get it on Google Play” to install the right app for your child.',
+    featTitle:'Why our apps?',
+    featSub:'Carefully built for real, playful and safe learning.',
+    download:'GET IT ON',
+    ctaTitle:'Start the learning journey today',
+    ctaSub:'Download the app that fits your child — for free.',
+    ctaBtn:'⬇️ Browse the apps',
+    footTag:'Educational apps for kids · Learn by playing'},
+  es:{dir:'ltr',label:'Español',
+    kicker:'6 apps · la familia educativa VS MEDIA',
+    heroTitle:'Apps educativas divertidas para tus hijos',
+    heroSub:'Seis juegos de aprendizaje que unen diversión y progreso — matemáticas y cinco idiomas — en 4 idiomas de interfaz, y sin conexión.',
+    badges:['4 idiomas','Sin conexión','Sin anuncios intrusivos','Desde 4 años','Informe para padres'],
+    appsTitle:'Elige tu app',
+    appsSub:'Toca “Disponible en Google Play” para instalar la app ideal para tu hijo.',
+    featTitle:'¿Por qué nuestras apps?',
+    featSub:'Diseñadas con cuidado para un aprendizaje real, lúdico y seguro.',
+    download:'DISPONIBLE EN',
+    ctaTitle:'Empieza el viaje de aprendizaje hoy',
+    ctaSub:'Descarga gratis la app que se adapta a tu hijo.',
+    ctaBtn:'⬇️ Ver las apps',
+    footTag:'Apps educativas para niños · Aprender jugando'},
+};
+
+const playSvg = '<svg width="20" height="22" viewBox="0 0 512 512" aria-hidden="true"><path fill="#EA4335" d="M325 256 90 20c-6-6-14-8-22-6l268 268z"/><path fill="#4285F4" d="M336 245 68 14c8-8 20-10 30-4l238 137z" opacity="0"/><path fill="#34A853" d="M60 12c-5 3-8 9-8 17v454c0 8 3 14 8 17l246-244z"/><path fill="#EA4335" d="M306 256 60 12c1 0 2 0 3 1l312 180-69 63z"/><path fill="#FBBC04" d="M375 193 447 235c18 11 18 31 0 42l-72 42-73-63z"/><path fill="#34A853" d="M63 499l243-243 69 63L66 500c-1 0-2-1-3-1z"/></svg>';
+
+let lang = localStorage.getItem('vsm_lang') || 'ar';
+
+function render(){
+  const t = T[lang];
+  document.documentElement.lang = lang;
+  document.documentElement.dir = t.dir;
+
+  // language buttons
+  document.getElementById('langs').innerHTML = Object.keys(T).map(k =>
+    `<button class="langbtn ${k===lang?'active':''}" onclick="setLang('${k}')">${T[k].label}</button>`).join('');
+
+  // static [data-i] strings
+  document.querySelectorAll('[data-i]').forEach(el=>{
+    const v = t[el.dataset.i];
+    if(typeof v === 'string') el.textContent = v;
+  });
+
+  // badges
+  document.getElementById('badges').innerHTML = t.badges.map(b=>`<span class="badge">${b}</span>`).join('');
+
+  // hero tiles
+  document.getElementById('heroTiles').innerHTML = APPS.map(a=>
+    `<div class="hero-tile" style="background:${a.color}">${a.emoji}</div>`).join('');
+
+  // app cards
+  document.getElementById('appGrid').innerHTML = APPS.map(a=>`
+    <div class="app-card">
+      <div class="app-top">
+        <div class="app-icon" style="background:linear-gradient(135deg,${a.color},${shade(a.color,-18)})">${a.emoji}</div>
+        <div>
+          <div class="app-name">${a.name[lang]}</div>
+          <div class="app-subject">${a.subject[lang]}</div>
+        </div>
+      </div>
+      <div class="app-tag">${a.tag[lang]}</div>
+      <a class="play-btn" href="${playUrl(a.pkg)}" target="_blank" rel="noopener">
+        ${playSvg}
+        <span><span class="g-sub">${t.download}</span><span class="g-main">Google Play</span></span>
+      </a>
+    </div>`).join('');
+
+  // features
+  document.getElementById('featGrid').innerHTML = FEATURES.map(f=>`
+    <div class="feat">
+      <div class="ic">${f.ic}</div>
+      <h3>${f.title[lang]}</h3>
+      <p>${f.desc[lang]}</p>
+    </div>`).join('');
+}
+
+function setLang(k){ lang=k; localStorage.setItem('vsm_lang',k); render(); }
+
+/* darken/lighten a hex colour */
+function shade(hex, pct){
+  const n=parseInt(hex.slice(1),16);
+  let r=(n>>16)&255, g=(n>>8)&255, b=n&255;
+  r=Math.max(0,Math.min(255,r+Math.round(255*pct/100)));
+  g=Math.max(0,Math.min(255,g+Math.round(255*pct/100)));
+  b=Math.max(0,Math.min(255,b+Math.round(255*pct/100)));
+  return '#'+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1);
+}
+
+render();
+</script>
+</body>
+</html>
