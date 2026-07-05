@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>VS MEDIA Kids — تطبيقات تعليمية ممتعة للأطفال</title>
+<title>Kids Learning Hub — تطبيقات تعليمية ممتعة للأطفال</title>
 <meta name="description" content="ستّ تطبيقات تعليمية للأطفال: الرياضيات وخمس لغات (الإنجليزية، الفرنسية، الإسبانية، العربية، الصينية). تعلّم باللعب، دون إنترنت، بأربع لغات واجهة." />
-<meta property="og:title" content="VS MEDIA Kids — Fun learning apps for kids" />
+<meta property="og:title" content="Kids Learning Hub — Fun learning apps for kids" />
 <meta property="og:description" content="6 educational apps: maths + 5 languages. Read · Listen · Speak · Write. Offline, kid-safe, 4 UI languages." />
 <meta name="theme-color" content="#5B21B6" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%92%3C/text%3E%3C/svg%3E" />
+<link rel="icon" href="logos/hub-logo.png" />
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -36,6 +36,7 @@ img{max-width:100%;display:block}
 }
 .langbar .brand-mini{font-weight:900;font-size:15px;letter-spacing:.3px;display:flex;align-items:center;gap:7px}
 .langbar .brand-mini span{background:linear-gradient(90deg,var(--purple),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.langbar .brand-mini img{width:28px;height:28px;object-fit:contain;border-radius:7px}
 .langs{display:flex;gap:5px;flex-wrap:wrap}
 .langbtn{
   background:none;border:1.5px solid transparent;padding:6px 13px;border-radius:20px;
@@ -57,6 +58,9 @@ img{max-width:100%;display:block}
     radial-gradient(circle at 82% 68%,rgba(255,255,255,.10) 0,transparent 45%);
 }
 .hero-inner{position:relative;max-width:860px;margin:0 auto}
+.hero-logo{width:134px;height:134px;object-fit:contain;margin:0 auto 8px;display:block;filter:drop-shadow(0 12px 26px rgba(0,0,0,.30))}
+.hero-wordmark{font-size:clamp(30px,7vw,52px);font-weight:900;letter-spacing:.5px;margin-bottom:12px;line-height:1.05;text-shadow:0 4px 20px rgba(0,0,0,.22)}
+.hero-wordmark b{color:#FDE047;font-weight:900}
 .kicker{
   display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);
   padding:6px 16px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:18px;backdrop-filter:blur(4px);
@@ -68,9 +72,11 @@ img{max-width:100%;display:block}
 /* floating app tiles in hero */
 .hero-tiles{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:34px}
 .hero-tile{
-  width:60px;height:60px;border-radius:16px;display:grid;place-items:center;font-size:26px;font-weight:900;
+  width:62px;height:62px;border-radius:16px;display:grid;place-items:center;font-size:26px;font-weight:900;color:#fff;
+  overflow:hidden;position:relative;
   box-shadow:0 10px 26px rgba(0,0,0,.28);animation:float 4s ease-in-out infinite;
 }
+.app-icon img,.hero-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero-tile:nth-child(2n){animation-delay:.5s}
 .hero-tile:nth-child(3n){animation-delay:1s}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
@@ -92,8 +98,9 @@ section{padding:58px 22px}
 .app-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(30,41,59,.14)}
 .app-top{display:flex;align-items:center;gap:14px}
 .app-icon{
-  width:66px;height:66px;border-radius:18px;flex:none;display:grid;place-items:center;
+  width:70px;height:70px;border-radius:18px;flex:none;display:grid;place-items:center;
   font-size:30px;font-weight:900;color:#fff;box-shadow:0 8px 20px rgba(0,0,0,.16);
+  overflow:hidden;position:relative;
 }
 .app-name{font-size:20px;font-weight:900;line-height:1.15}
 .app-subject{font-size:12.5px;font-weight:700;color:var(--muted);margin-top:2px}
@@ -132,12 +139,16 @@ footer a{color:#93C5FD}
 <body>
 
 <div class="langbar">
-  <div class="brand-mini">🎒 <span>VS&nbsp;MEDIA&nbsp;Kids</span></div>
+  <div class="brand-mini"><img src="logos/hub-logo.png" alt="" onerror="this.style.display='none'"> <span>Kids&nbsp;Learning&nbsp;Hub</span></div>
   <div class="langs" id="langs"></div>
 </div>
 
 <header class="hero">
   <div class="hero-inner">
+    <img class="hero-logo" src="logos/hub-logo.png" alt="Kids Learning Hub" style="display:none"
+         onload="this.style.display='block';var w=document.getElementById('hw');if(w)w.style.display='none'"
+         onerror="this.style.display='none'">
+    <div class="hero-wordmark" id="hw">Kids <b>Learning</b> Hub</div>
     <span class="kicker" data-i="kicker"></span>
     <h1 data-i="heroTitle"></h1>
     <p data-i="heroSub"></p>
@@ -171,9 +182,10 @@ footer a{color:#93C5FD}
 </section>
 
 <footer>
-  <div class="fbrand">VS MEDIA</div>
+  <div class="fbrand">Kids Learning Hub</div>
+  <div style="opacity:.7;font-size:13px;margin-bottom:4px">by VS MEDIA</div>
   <div data-i="footTag"></div>
-  <div style="margin-top:8px">© 2026 Ayyoub EL HAJJI · <a href="mailto:ayyoub.elhajji@etu.uae.ac.ma">ayyoub.elhajji@etu.uae.ac.ma</a></div>
+  <div style="margin-top:8px">© 2026 Ayyoub EL HAJJI · <a href="mailto:vs.media.ste@gmail.com">vs.media.ste@gmail.com</a></div>
 </footer>
 
 <script>
@@ -225,7 +237,7 @@ const FEATURES = [
 /* ─────────── UI strings ─────────── */
 const T = {
   ar:{dir:'rtl',label:'العربية',
-    kicker:'٦ تطبيقات · عائلة VS MEDIA التعليمية',
+    kicker:'٦ تطبيقات تعليمية للأطفال',
     heroTitle:'تطبيقات تعليمية ممتعة لأطفالك',
     heroSub:'ستّ ألعاب تعلّمية تجمع بين المرح والفائدة — الرياضيات وخمس لغات — بأربع لغات واجهة، وتعمل دون إنترنت.',
     badges:['٤ لغات واجهة','دون إنترنت','بلا إعلانات مزعجة','من عمر ٤ سنوات','تقرير للأهل'],
@@ -239,7 +251,7 @@ const T = {
     ctaBtn:'⬇️ إلى التطبيقات',
     footTag:'تطبيقات تعليمية للأطفال · تعلّم باللعب'},
   fr:{dir:'ltr',label:'Français',
-    kicker:'6 applis · la famille éducative VS MEDIA',
+    kicker:'6 applis éducatives pour enfants',
     heroTitle:'Des applis éducatives amusantes pour vos enfants',
     heroSub:'Six jeux d’apprentissage qui mêlent plaisir et progrès — les maths et cinq langues — en 4 langues d’interface, et hors ligne.',
     badges:['4 langues','Hors ligne','Sans pub intrusive','Dès 4 ans','Rapport parent'],
@@ -253,7 +265,7 @@ const T = {
     ctaBtn:'⬇️ Voir les applis',
     footTag:'Applis éducatives pour enfants · Apprendre en jouant'},
   en:{dir:'ltr',label:'English',
-    kicker:'6 apps · the VS MEDIA learning family',
+    kicker:'6 educational apps for kids',
     heroTitle:'Fun learning apps for your kids',
     heroSub:'Six learning games that blend fun and progress — maths and five languages — in 4 interface languages, and fully offline.',
     badges:['4 languages','Offline','No intrusive ads','Ages 4+','Parent report'],
@@ -267,7 +279,7 @@ const T = {
     ctaBtn:'⬇️ Browse the apps',
     footTag:'Educational apps for kids · Learn by playing'},
   es:{dir:'ltr',label:'Español',
-    kicker:'6 apps · la familia educativa VS MEDIA',
+    kicker:'6 apps educativas para niños',
     heroTitle:'Apps educativas divertidas para tus hijos',
     heroSub:'Seis juegos de aprendizaje que unen diversión y progreso — matemáticas y cinco idiomas — en 4 idiomas de interfaz, y sin conexión.',
     badges:['4 idiomas','Sin conexión','Sin anuncios intrusivos','Desde 4 años','Informe para padres'],
@@ -304,15 +316,15 @@ function render(){
   // badges
   document.getElementById('badges').innerHTML = t.badges.map(b=>`<span class="badge">${b}</span>`).join('');
 
-  // hero tiles
+  // hero tiles (real logo, monogram fallback if the file is missing)
   document.getElementById('heroTiles').innerHTML = APPS.map(a=>
-    `<div class="hero-tile" style="background:${a.color}">${a.emoji}</div>`).join('');
+    `<div class="hero-tile" style="background:${a.color}">${a.emoji}<img src="logos/${logoFile(a)}" alt="" loading="lazy" onerror="this.remove()"></div>`).join('');
 
   // app cards
   document.getElementById('appGrid').innerHTML = APPS.map(a=>`
     <div class="app-card">
       <div class="app-top">
-        <div class="app-icon" style="background:linear-gradient(135deg,${a.color},${shade(a.color,-18)})">${a.emoji}</div>
+        <div class="app-icon" style="background:linear-gradient(135deg,${a.color},${shade(a.color,-18)})">${a.emoji}<img src="logos/${logoFile(a)}" alt="${a.name[lang]}" loading="lazy" onerror="this.remove()"></div>
         <div>
           <div class="app-name">${a.name[lang]}</div>
           <div class="app-subject">${a.subject[lang]}</div>
@@ -335,6 +347,9 @@ function render(){
 }
 
 function setLang(k){ lang=k; localStorage.setItem('vsm_lang',k); render(); }
+
+/* nom de fichier du logo, ex. "MathoKids" -> "mathokids.png" */
+function logoFile(a){ return a.name.en.toLowerCase() + '.png'; }
 
 /* darken/lighten a hex colour */
 function shade(hex, pct){
