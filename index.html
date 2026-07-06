@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ar" dir="ltr">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Kids Learning Hub — تطبيقات تعليمية ممتعة للأطفال</title>
-<meta name="description" content="ستّ تطبيقات تعليمية للأطفال: الرياضيات وخمس لغات (الإنجليزية، الفرنسية، الإسبانية، العربية، الصينية). تعلّم باللعب، دون إنترنت، بأربع لغات واجهة." />
+<title>Kids Learning Hub — Fun learning apps for kids</title>
+<meta name="description" content="6 educational apps: maths + 5 languages. Read · Listen · Speak · Write. Offline, kid-safe, 4 UI languages." />
 <meta property="og:title" content="Kids Learning Hub — Fun learning apps for kids" />
 <meta property="og:description" content="6 educational apps: maths + 5 languages. Read · Listen · Speak · Write. Offline, kid-safe, 4 UI languages." />
 <meta name="theme-color" content="#5B21B6" />
@@ -185,34 +185,34 @@ footer a{color:#93C5FD}
   <div class="fbrand">Kids Learning Hub</div>
   <div style="opacity:.7;font-size:13px;margin-bottom:4px">by VS MEDIA</div>
   <div data-i="footTag"></div>
-  <div style="margin-top:8px">© 2026 EL HAJJI · <a href="mailto:vs.media.ste@gmail.com">vs.media.ste@gmail.com</a></div>
+  <div style="margin-top:8px">© 2026 Ayyoub EL HAJJI · <a href="mailto:vs.media.ste@gmail.com">vs.media.ste@gmail.com</a></div>
 </footer>
 
 <script>
 /* ─────────── App catalogue (source: family_apps.dart) ─────────── */
 const APPS = [
   {pkg:'com.matho.primaire', emoji:'🧮', color:'#3B82F6',
-   name:{en:'MathoKids',fr:'MathoKids',es:'MathoKids',ar:'ماتوكيدز'},
+   name:{en:'MathoKids',fr:'MathoKids',es:'MathoKids',ar:'MathoKids'},
    subject:{en:'Maths',fr:'Maths',es:'Matemáticas',ar:'الرياضيات'},
    tag:{en:'Learn maths by playing',fr:'Apprends les maths en jouant',es:'Aprende matemáticas jugando',ar:'تعلّم الرياضيات باللعب'}},
   {pkg:'com.vsmedia.francokids', emoji:'Fr', color:'#2563EB',
-   name:{en:'FrancoKids',fr:'FrancoKids',es:'FrancoKids',ar:'فرانكوكيدز'},
+   name:{en:'FrancoKids',fr:'FrancoKids',es:'FrancoKids',ar:'FrancoKids'},
    subject:{en:'French',fr:'Français',es:'Francés',ar:'الفرنسية'},
    tag:{en:'Learn French by playing',fr:'Apprends le français en jouant',es:'Aprende francés jugando',ar:'تعلّم الفرنسية باللعب'}},
   {pkg:'com.vsmedia.englokids', emoji:'En', color:'#DC2626',
-   name:{en:'EngloKids',fr:'EngloKids',es:'EngloKids',ar:'إنجلوكيدز'},
+   name:{en:'EngloKids',fr:'EngloKids',es:'EngloKids',ar:'EngloKids'},
    subject:{en:'English',fr:'Anglais',es:'Inglés',ar:'الإنجليزية'},
    tag:{en:'Learn English by playing',fr:"Apprends l'anglais en jouant",es:'Aprende inglés jugando',ar:'تعلّم الإنجليزية باللعب'}},
   {pkg:'com.vsmedia.arabikids', emoji:'ع', color:'#6816AD',
-   name:{en:'ArabiKids',fr:'ArabiKids',es:'ArabiKids',ar:'عربيكيدز'},
+   name:{en:'ArabiKids',fr:'ArabiKids',es:'ArabiKids',ar:'ArabiKids'},
    subject:{en:'Arabic',fr:'Arabe',es:'Árabe',ar:'العربية'},
    tag:{en:'Learn Arabic by playing',fr:"Apprends l'arabe en jouant",es:'Aprende árabe jugando',ar:'تعلّم العربية باللعب'}},
   {pkg:'com.vsmedia.spanokids', emoji:'Es', color:'#F59E0B',
-   name:{en:'SpanoKids',fr:'SpanoKids',es:'SpanoKids',ar:'سبانوكيدز'},
+   name:{en:'SpanoKids',fr:'SpanoKids',es:'SpanoKids',ar:'SpanoKids'},
    subject:{en:'Spanish',fr:'Espagnol',es:'Español',ar:'الإسبانية'},
    tag:{en:'Learn Spanish by playing',fr:"Apprends l'espagnol en jouant",es:'Aprende español jugando',ar:'تعلّم الإسبانية باللعب'}},
   {pkg:'com.vsmedia.chinokids', emoji:'中', color:'#DC2626',
-   name:{en:'ChinoKids',fr:'ChinoKids',es:'ChinoKids',ar:'شينوكيدز'},
+   name:{en:'ChinoKids',fr:'ChinoKids',es:'ChinoKids',ar:'ChinoKids'},
    subject:{en:'Chinese',fr:'Chinois',es:'Chino',ar:'الصينية'},
    tag:{en:'Learn Chinese by playing',fr:'Apprends le chinois en jouant',es:'Aprende chino jugando',ar:'تعلّم الصينية باللعب'}},
 ];
@@ -296,6 +296,7 @@ const T = {
 
 const playSvg = '<svg width="20" height="22" viewBox="0 0 512 512" aria-hidden="true"><path fill="#EA4335" d="M325 256 90 20c-6-6-14-8-22-6l268 268z"/><path fill="#4285F4" d="M336 245 68 14c8-8 20-10 30-4l238 137z" opacity="0"/><path fill="#34A853" d="M60 12c-5 3-8 9-8 17v454c0 8 3 14 8 17l246-244z"/><path fill="#EA4335" d="M306 256 60 12c1 0 2 0 3 1l312 180-69 63z"/><path fill="#FBBC04" d="M375 193 447 235c18 11 18 31 0 42l-72 42-73-63z"/><path fill="#34A853" d="M63 499l243-243 69 63L66 500c-1 0-2-1-3-1z"/></svg>';
 
+// اللغة الافتراضية الآن هي الإنجليزية 'en'
 let lang = localStorage.getItem('vsm_lang') || 'en';
 
 function render(){
@@ -316,17 +317,17 @@ function render(){
   // badges
   document.getElementById('badges').innerHTML = t.badges.map(b=>`<span class="badge">${b}</span>`).join('');
 
-  // hero tiles (real logo, monogram fallback if the file is missing)
+  // hero tiles
   document.getElementById('heroTiles').innerHTML = APPS.map(a=>
     `<div class="hero-tile" style="background:${a.color}">${a.emoji}<img src="logos/${logoFile(a)}" alt="" loading="lazy" onerror="this.remove()"></div>`).join('');
 
-  // app cards
+  // app cards (تعرض الاسم الإنجليزي 'en' بشكل ثابت دائماً)
   document.getElementById('appGrid').innerHTML = APPS.map(a=>`
     <div class="app-card">
       <div class="app-top">
-        <div class="app-icon" style="background:linear-gradient(135deg,${a.color},${shade(a.color,-18)})">${a.emoji}<img src="logos/${logoFile(a)}" alt="${a.name[lang]}" loading="lazy" onerror="this.remove()"></div>
+        <div class="app-icon" style="background:linear-gradient(135deg,${a.color},${shade(a.color,-18)})">${a.emoji}<img src="logos/${logoFile(a)}" alt="${a.name['en']}" loading="lazy" onerror="this.remove()"></div>
         <div>
-          <div class="app-name">${a.name[lang]}</div>
+          <div class="app-name">${a.name['en']}</div>
           <div class="app-subject">${a.subject[lang]}</div>
         </div>
       </div>
