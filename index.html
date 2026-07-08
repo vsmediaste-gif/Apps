@@ -4,9 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Kids Learning Hub — Fun learning apps for kids</title>
-<meta name="description" content="6 educational apps: maths + 5 languages. Read · Listen · Speak · Write. Offline, kid-safe, 4 UI languages." />
+<meta name="description" content="7 educational apps: maths + 6 languages. Read · Listen · Speak · Write. Offline, kid-safe, 4 UI languages." />
 <meta property="og:title" content="Kids Learning Hub — Fun learning apps for kids" />
-<meta property="og:description" content="6 educational apps: maths + 5 languages. Read · Listen · Speak · Write. Offline, kid-safe, 4 UI languages." />
+<meta property="og:description" content="7 educational apps: maths + 6 languages. Read · Listen · Speak · Write. Offline, kid-safe, 4 UI languages." />
 <meta name="theme-color" content="#5B21B6" />
 <link rel="icon" href="logos/hub-logo.png" />
 <style>
@@ -59,6 +59,7 @@ img{max-width:100%;display:block}
 }
 .hero-inner{position:relative;max-width:860px;margin:0 auto}
 .hero-logo{width:134px;height:134px;object-fit:contain;margin:0 auto 8px;display:block;filter:drop-shadow(0 12px 26px rgba(0,0,0,.30))}
+.hero-banner{width:100%;max-width:860px;height:auto;margin:0 auto 22px;display:block;border-radius:26px;filter:drop-shadow(0 16px 34px rgba(0,0,0,.30))}
 .hero-wordmark{font-size:clamp(30px,7vw,52px);font-weight:900;letter-spacing:.5px;margin-bottom:12px;line-height:1.05;text-shadow:0 4px 20px rgba(0,0,0,.22)}
 .hero-wordmark b{color:#FDE047;font-weight:900}
 .kicker{
@@ -215,6 +216,10 @@ const APPS = [
    name:{en:'ChinoKids',fr:'ChinoKids',es:'ChinoKids',ar:'ChinoKids'},
    subject:{en:'Chinese',fr:'Chinois',es:'Chino',ar:'الصينية'},
    tag:{en:'Learn Chinese by playing',fr:'Apprends le chinois en jouant',es:'Aprende chino jugando',ar:'تعلّم الصينية باللعب'}},
+  {pkg:'com.vsmedia.germokids', emoji:'De', color:'#1A1A1A',
+   name:{en:'GermoKids',fr:'GermoKids',es:'GermoKids',ar:'GermoKids'},
+   subject:{en:'German',fr:'Allemand',es:'Alemán',ar:'الألمانية'},
+   tag:{en:'Learn German by playing',fr:"Apprends l'allemand en jouant",es:'Aprende alemán jugando',ar:'تعلّم الألمانية باللعب'}},
 ];
 const playUrl = p => 'https://play.google.com/store/apps/details?id=' + p;
 
@@ -237,9 +242,9 @@ const FEATURES = [
 /* ─────────── UI strings ─────────── */
 const T = {
   ar:{dir:'rtl',label:'العربية',
-    kicker:'٦ تطبيقات تعليمية للأطفال',
+    kicker:'٧ تطبيقات تعليمية للأطفال',
     heroTitle:'تطبيقات تعليمية ممتعة لأطفالك',
-    heroSub:'ستّ ألعاب تعلّمية تجمع بين المرح والفائدة — الرياضيات وخمس لغات — بأربع لغات واجهة، وتعمل دون إنترنت.',
+    heroSub:'سبع ألعاب تعلّمية تجمع بين المرح والفائدة — الرياضيات وستّ لغات — بأربع لغات واجهة، وتعمل دون إنترنت.',
     badges:['٤ لغات واجهة','دون إنترنت','بلا إعلانات مزعجة','من عمر ٤ سنوات','تقرير للأهل'],
     appsTitle:'اختر تطبيقك',
     appsSub:'انقر «تحميل من Google Play» لتثبيت التطبيق الذي يناسب طفلك.',
@@ -251,9 +256,9 @@ const T = {
     ctaBtn:'⬇️ إلى التطبيقات',
     footTag:'تطبيقات تعليمية للأطفال · تعلّم باللعب'},
   fr:{dir:'ltr',label:'Français',
-    kicker:'6 applis éducatives pour enfants',
+    kicker:'7 applis éducatives pour enfants',
     heroTitle:'Des applis éducatives amusantes pour vos enfants',
-    heroSub:'Six jeux d’apprentissage qui mêlent plaisir et progrès — les maths et cinq langues — en 4 langues d’interface, et hors ligne.',
+    heroSub:'Sept jeux d’apprentissage qui mêlent plaisir et progrès — les maths et six langues — en 4 langues d’interface, et hors ligne.',
     badges:['4 langues','Hors ligne','Sans pub intrusive','Dès 4 ans','Rapport parent'],
     appsTitle:'Choisissez votre appli',
     appsSub:'Cliquez sur « Télécharger sur Google Play » pour installer l’appli adaptée à votre enfant.',
@@ -265,9 +270,9 @@ const T = {
     ctaBtn:'⬇️ Voir les applis',
     footTag:'Applis éducatives pour enfants · Apprendre en jouant'},
   en:{dir:'ltr',label:'English',
-    kicker:'6 educational apps for kids',
+    kicker:'7 educational apps for kids',
     heroTitle:'Fun learning apps for your kids',
-    heroSub:'Six learning games that blend fun and progress — maths and five languages — in 4 interface languages, and fully offline.',
+    heroSub:'Seven learning games that blend fun and progress — maths and six languages — in 4 interface languages, and fully offline.',
     badges:['4 languages','Offline','No intrusive ads','Ages 4+','Parent report'],
     appsTitle:'Pick your app',
     appsSub:'Tap “Get it on Google Play” to install the right app for your child.',
@@ -279,9 +284,9 @@ const T = {
     ctaBtn:'⬇️ Browse the apps',
     footTag:'Educational apps for kids · Learn by playing'},
   es:{dir:'ltr',label:'Español',
-    kicker:'6 apps educativas para niños',
+    kicker:'7 apps educativas para niños',
     heroTitle:'Apps educativas divertidas para tus hijos',
-    heroSub:'Seis juegos de aprendizaje que unen diversión y progreso — matemáticas y cinco idiomas — en 4 idiomas de interfaz, y sin conexión.',
+    heroSub:'Siete juegos de aprendizaje que unen diversión y progreso — matemáticas y seis idiomas — en 4 idiomas de interfaz, y sin conexión.',
     badges:['4 idiomas','Sin conexión','Sin anuncios intrusivos','Desde 4 años','Informe para padres'],
     appsTitle:'Elige tu app',
     appsSub:'Toca “Disponible en Google Play” para instalar la app ideal para tu hijo.',
