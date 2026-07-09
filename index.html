@@ -4,9 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Kids Learning Hub — Fun learning apps for kids</title>
-<meta name="description" content="7 educational apps: maths + 6 languages. Read · Listen · Speak · Write. Offline, kid-safe, 4 UI languages." />
+<meta name="description" content="8 educational apps: maths, science + 6 languages. Read · Listen · Speak · Write. Offline, kid-safe, 4 UI languages." />
 <meta property="og:title" content="Kids Learning Hub — Fun learning apps for kids" />
-<meta property="og:description" content="7 educational apps: maths + 6 languages. Read · Listen · Speak · Write. Offline, kid-safe, 4 UI languages." />
+<meta property="og:description" content="8 educational apps: maths, science + 6 languages. Read · Listen · Speak · Write. Offline, kid-safe, 4 UI languages." />
 <meta name="theme-color" content="#5B21B6" />
 <link rel="icon" href="logos/hub-logo.png" />
 <style>
@@ -77,7 +77,8 @@ img{max-width:100%;display:block}
   overflow:hidden;position:relative;
   box-shadow:0 10px 26px rgba(0,0,0,.28);animation:float 4s ease-in-out infinite;
 }
-.app-icon img,.hero-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.app-icon img,.hero-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+.hero-tile span, .app-icon span{position:relative;z-index:1}
 .hero-tile:nth-child(2n){animation-delay:.5s}
 .hero-tile:nth-child(3n){animation-delay:1s}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
@@ -195,7 +196,7 @@ const APPS = [
   {pkg:'com.matho.primaire', emoji:'🧮', color:'#3B82F6',
    name:{en:'MathoKids',fr:'MathoKids',es:'MathoKids',ar:'MathoKids'},
    subject:{en:'Maths',fr:'Maths',es:'Matemáticas',ar:'الرياضيات'},
-   tag:{en:'Learn maths by playing',fr:'Apprends les maths en jouائ',es:'Aprende matemáticas jugando',ar:'تعلّم الرياضيات باللعب'}},
+   tag:{en:'Learn maths by playing',fr:'Apprends les maths en jouant',es:'Aprende matemáticas jugando',ar:'تعلّم الرياضيات باللعب'}},
   {pkg:'com.vsmedia.francokids', emoji:'Fr', color:'#2563EB',
    name:{en:'FrancoKids',fr:'FrancoKids',es:'FrancoKids',ar:'FrancoKids'},
    subject:{en:'French',fr:'Français',es:'Francés',ar:'الفرنسية'},
@@ -207,7 +208,7 @@ const APPS = [
   {pkg:'com.vsmedia.arabikids', emoji:'ع', color:'#6816AD',
    name:{en:'ArabiKids',fr:'ArabiKids',es:'ArabiKids',ar:'ArabiKids'},
    subject:{en:'Arabic',fr:'Arabe',es:'Árabe',ar:'العربية'},
-   tag:{en:'Learn Arabic by playing',fr:"Apprends l'arabe en jouant",es:'Aprende árabe jugando',ar:'تعلّم العربية باللعب'}},
+   tag:{en:'Learn Arabic by playing',fr:"Apprends l'arabe en jouant",es:'Aprende أrab jugando',ar:'تعلّم العربية باللعب'}},
   {pkg:'com.vsmedia.spanokids', emoji:'Es', color:'#F59E0B',
    name:{en:'SpanoKids',fr:'SpanoKids',es:'SpanoKids',ar:'SpanoKids'},
    subject:{en:'Spanish',fr:'Espagnol',es:'Español',ar:'الإسبانية'},
@@ -238,7 +239,7 @@ const FEATURES = [
   {ic:'✈️', title:{en:'Works offline',fr:'Fonctionne hors ligne',es:'Funciona sin conexión',ar:'يعمل دون إنترنت'},
    desc:{en:'Learn anywhere — in the car, on a trip, with no internet needed.',fr:'Apprendre partout — en voiture, en voyage, sans internet.',es:'Aprende en cualquier lugar, sin necesidad de internet.',ar:'التعلّم في أي مكان — في السيارة أو السفر، دون حاجة للإنترنت.'}},
   {ic:'🛡️', title:{en:'Safe for kids',fr:'Sûr pour les enfants',es:'Seguro para niños',ar:'آمن للأطفال'},
-   desc:{en:'Parental gate, no intrusive ads, designed for ages 4 and up.',fr:'Contرle parental, pas de pub intrusive, dès 4 ans.',es:'Control parental, sin anuncios intrusivos, desde los 4 años.',ar:'بوّابة أبوية، بلا إعلانات مزعجة، مصمّم من عمر ٤ سنوات.'}},
+   desc:{en:'Parental gate, no intrusive ads, designed for ages 4 and up.',fr:'Contrôle parental, pas de pub intrusive, dès 4 ans.',es:'Control parental, sin anuncios intrusivos, desde los 4 años.',ar:'بوّابة أبوية، بلا إعلانات مزعجة، مصمّم من عمر ٤ سنوات.'}},
   {ic:'🏆', title:{en:'Stays motivating',fr:'Motive au quotidien',es:'Motiva cada día',ar:'يحفّز على الاستمرار'},
    desc:{en:'Badges, stars, daily streaks and rewards keep kids coming back.',fr:'Badges, étoiles, séries et récompenses donnent envie de continuer.',es:'Insignias, estrellas, rachas y recompensas para seguir.',ar:'شارات ونجوم وسلاسل يومية ومكافآت تحفّز على المواصلة.'}},
 ];
@@ -305,7 +306,6 @@ const T = {
 
 const playSvg = '<svg width="20" height="22" viewBox="0 0 512 512" aria-hidden="true"><path fill="#EA4335" d="M325 256 90 20c-6-6-14-8-22-6l268 268z"/><path fill="#4285F4" d="M336 245 68 14c8-8 20-10 30-4l238 137z" opacity="0"/><path fill="#34A853" d="M60 12c-5 3-8 9-8 17v454c0 8 3 14 8 17l246-244z"/><path fill="#EA4335" d="M306 256 60 12c1 0 2 0 3 1l312 180-69 63z"/><path fill="#FBBC04" d="M375 193 447 235c18 11 18 31 0 42l-72 42-73-63z"/><path fill="#34A853" d="M63 499l243-243 69 63L66 500c-1 0-2-1-3-1z"/></svg>';
 
-// اللغة الافتراضية الآن هي الإنجليزية 'en'
 let lang = localStorage.getItem('vsm_lang') || 'en';
 
 function render(){
@@ -328,13 +328,13 @@ function render(){
 
   // hero tiles
   document.getElementById('heroTiles').innerHTML = APPS.map(a=>
-    `<div class="hero-tile" style="background:${a.color}">${a.emoji}<img src="logos/${logoFile(a)}" alt="" loading="lazy" onerror="this.remove()"></div>`).join('');
+    `<div class="hero-tile" style="background:${a.color}"><span>${a.emoji}</span><img src="logos/${logoFile(a)}" alt="" loading="lazy" onerror="this.remove()"></div>`).join('');
 
-  // app cards (تعرض الاسم الإنجليزي 'en' بشكل ثابت دائماً)
+  // app cards
   document.getElementById('appGrid').innerHTML = APPS.map(a=>`
     <div class="app-card">
       <div class="app-top">
-        <div class="app-icon" style="background:linear-gradient(135deg,${a.color},${shade(a.color,-18)})">${a.emoji}<img src="logos/${logoFile(a)}" alt="${a.name['en']}" loading="lazy" onerror="this.remove()"></div>
+        <div class="app-icon" style="background:linear-gradient(135deg,${a.color},${shade(a.color,-18)})"><span>${a.emoji}</span><img src="logos/${logoFile(a)}" alt="${a.name['en']}" loading="lazy" onerror="this.remove()"></div>
         <div>
           <div class="app-name">${a.name['en']}</div>
           <div class="app-subject">${a.subject[lang]}</div>
@@ -358,7 +358,7 @@ function render(){
 
 function setLang(k){ lang=k; localStorage.setItem('vsm_lang',k); render(); }
 
-/* nom de fichier du logo, ex. "MathoKids" -> "mathokids.png" */
+/* nom de fichier du logo, ex. "ScienKids" -> "scienkids.png" */
 function logoFile(a){ return a.name.en.toLowerCase() + '.png'; }
 
 /* darken/lighten a hex colour */
